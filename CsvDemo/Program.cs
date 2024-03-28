@@ -11,7 +11,8 @@ List<ClientModel> clients =
         [
             "test.com",
             "domain.com"
-        ])
+        ], "Aaa")
+
 ];
 
 var config = new CsvConfiguration(CultureInfo.GetCultureInfo("en-US"))
@@ -21,7 +22,7 @@ var config = new CsvConfiguration(CultureInfo.GetCultureInfo("en-US"))
 
 using (var csv = new CsvWriter(Console.Out, config))
 {
-    csv.Context.RegisterClassMap<CSVMap>();
+    csv.Context.RegisterClassMap<ClientModelMap>();
     csv.WriteRecords(clients);
 }
 
